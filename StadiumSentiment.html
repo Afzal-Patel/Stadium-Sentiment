@@ -1,0 +1,492 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="../template.js"></script>
+<script type="text/javascript" async src=img/"https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"> </script> <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [
+                ['\\(', '\\)']
+            ]
+        }
+    });
+</script>
+
+<script type="text/front-matter">
+  title: "Don’t expect the public to look at your stadium any different as you come close to finishing it"
+  description: "Through an analysis of tweets related to stadiums, we have found that the sentiment of twitter users towards new stadiums does not change as they near completion. "
+  publishedDate: 2019-12-20
+  authors:
+  - Sasha Novitsky: mailto:anovitsky20@students.claremontmckenna.edu
+  - Afzal Patel: mailto:aspb2017@mymail.pomona.edu
+  affiliations:
+  - Economics , Claremont McKenna College: https://www.cmc.edu/robert-day-school
+  - Computer Science, Pomona College: https://www.pomona.edu/academics/departments/computer-science
+</script>
+
+
+<dt-article>
+
+
+    <h1>Don’t expect the public to look at your stadium any different as you come close to finishing it</h1>
+    <p>
+        <strong>tl;dr</strong>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        If you’re in the business of building stadiums, public sentiment towards your project will most likely not change as you near completion. This project analyzed the content of over 274,000 tweets from the last three years that related to the ten largest stadiums under construction in America to explore the relationship between public sentiment of stadiums under completion and the months until completion.
+
+    </p>
+
+    <dt-byline></dt-byline>
+
+    <h2>The Problem</h2>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Within the last few decades, new sports stadiums seem to be popping up every day. While many of these stadiums are financed privately by individuals and corporations, the majority are financed by a mix of public and private funds. But what do the citizens really think of these costly stadiums?
+        <dt-fn>
+            Public funding is justified since the organization brings their brand and is supposed to increase economic activity around the area. For more on the history of athletic facilities and their role in America see
+            <dt-cite key='source1'>Johnson Garrett</dt-cite> , “The Economic Impact of New Stadiums and Arenas on Cities", <em>University of Denver Sports & Entertainment Law Journal 10</em>, (2011)
+        </dt-fn>
+    </p>
+
+    <h2>Overview</h2>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        A dataset of about two billion tweets was parsed using an algorithm written in Python that looked for specific, well thought-out keywords
+        <dt-fn>
+            <b>Keyword Lists</b>
+            Here are the lists of keywords by stadium used to filter tweets from the original dataset:<br>
+
+            <b>Sofi:</b><br> sofistadium, sofi stadium, nfl la, la football, ramsNFL,RamsHouse, LARams, la rams,
+            rams fan, @Chargers, BoltUp, LAChargers, la chargers, and chargers fan.
+
+            <br><b>Allegiant:</b> <br>AllegiantStadm, allegiantstadium, allegiant stadium, Las Vegas Raiders, Lv raiders,
+            Oakland raiders, @Raiders, #Raiders, RaiderNation, raider nation, raider fans, and raiders stadium.
+
+            <br> <b>Protective:</b> <br>Protectivestadium, protective stadium, protectivestdm, University of Alabama at
+            Burmingham Football, UAB football, go blazers, goblazers, UABgreengang, UAB_FB, and
+            BJCC.
+
+            <br> <b>Globe:</b><br> Globelifefield, globe life field, globe field, globefield, rangers fan,
+            rangers ballpark,rangers stadium, rangers field, rangersballpark, rangersstadium, and
+            rangersfield.
+
+            <br> <b>Oakland:</b> <br>oakstadium, oak stadium, oaklandstadium, oakland stadium, oaklandathletics, oakland
+            athletics, @athletics, bjarke ingels, howard terminal, howardterminal, and jack london square.
+
+            <br> <b>SDSU West:</b> <br>san diego west stadium, SDSUWest, sd west stadium, san diego stadium, sandiegostadium,
+            Weststadium, sdweststadium, san diego football, sd football, sdfootball, mission valley
+            Stadium, sdsu mission valley, and sdccu stadium.
+
+            <br> <b>New Aloha:</b> <br>new aloha stadium, aloha stadium, newaloha, Aloha Stadium Hawaii, hawaiifb, AlohaStadiumHI, newalohastadium, aloha stadium, hawaii football, hawaiifootball, u of hawaii football, and hawaiifb.
+
+            <br> <b>Nashville Fairgrounds:</b> <br>nashville fairgrouds, FAIRGROUNDSNASH, nashvillefairgrounds, nashville fairground, nashvillefairgound, fc nashville, fcnashville, nashville soccer, nashvillesoccer, nashville sc, and nashvillesc.
+
+            <br><b>Cincinnati:</b> <br>cincinnati stadium, cincinnati stadium, cincinati stadium, FCCincy, cincinatistadium, west end stadium, westendstadium, westendstdm,mcincinnati fc,mcincinnatifc, cincinatifc, fc cincinnati,fccincinnati,fc cincinati, and fccincinati.
+
+            <br> <b>Miami Freedom:</b><br> miami freedom stadium, miafreedompark, miamifreedomstadium, miami stadium, Inter Miami CF stadium, miamistadium, inter miami, inter maimi, miami cf, miami fc, intermiami,
+            Intermaimi, miamicf, miamifc, intermiami, intermaimi, InterMiamiCF, freedom stadium, and freedomstadium.
+
+        </dt-fn>
+        related to the ten largest stadiums under construction in the United States. <em>Figure 1</em> lists the ten American stadiums of focus in the order of projected capacity and provides other important qualities. Unless stated otherwise, affiliated organizations and sports are assumed to be professional.
+    </p>
+
+
+
+    <p>
+        <font size=3><b>Figure 1.</b> <em>Stadium Traits</em></font>
+    </p>
+    <table>
+
+        <tr>
+            <th>City</th>
+            <th>State</th>
+            <th>Name</th>
+            <th>Main Use</th>
+            <th>Other Uses?</th>
+            <th>Team(s)</th>
+            <th>Completion Year</th>
+            <th>Capacity</th>
+        </tr>
+
+
+        <tr>
+            <td>Inglewood</td>
+            <td>CA</td>
+            <td>SoFi Stadium</td>
+            <td>Football</td>
+            <td>Yes</td>
+            <td>Los Angeles Rams,<br>Los Angeles Chargers</td>
+            <td>2020</td>
+            <td>70,000</td>
+        </tr>
+
+        <tr>
+            <td>Las Vegas</td>
+            <td>NV</td>
+            <td>Allegiant Stadium</td>
+            <td>Football</td>
+            <td>Yes</td>
+            <td>Los Vegas Raiders,<br>UNLV Rebels</td>
+            <td>2020</td>
+            <td>65,000</td>
+        </tr>
+
+        <tr>
+            <td>Birmingham</td>
+            <td>AL</td>
+            <td>Protective Stadium</td>
+            <td>Football</td>
+            <td>Yes</td>
+            <td>UAB Blazers</td>
+            <td>2021</td>
+            <td>45,000</td>
+        </tr>
+
+        <tr>
+            <td>Arlington</td>
+            <td>TX</td>
+            <td><b>Globe Life Field </b></td>
+            <td>Baseball</td>
+            <td>Yes</td>
+            <td>Texas <br>Rangers</td>
+            <td><b>2020</b></td>
+            <td>40,000</td>
+        </tr>
+        <tr>
+            <td>Oakland</td>
+            <td>CA</td>
+            <td>Oakland Ballpark</td>
+            <td>Baseball</td>
+            <td>Yes</td>
+            <td>Oakland Athletics</td>
+            <td>2023</td>
+            <td>35,000</td>
+        </tr>
+
+        <tr>
+            <td>San Diego</td>
+            <td>CA</td>
+            <td>SDSU West Stadium</td>
+            <td>Football (college)</td>
+            <td>Yes</td>
+            <td>San Diego State Aztecs</td>
+            <td>TBD</td>
+            <td>35,000</td>
+        </tr>
+
+        <tr>
+            <td>Honolulu</td>
+            <td>HI</td>
+            <td>New Aloha Stadium</td>
+            <td>Football (college)</td>
+            <td>Yes</td>
+            <td>University of Hawaii Vili</td>
+            <td>2023</td>
+            <td>30,000</td>
+        </tr>
+
+        <tr>
+            <td>Nashville</td>
+            <td>TN</td>
+            <td>Nashville Fairgrounds Stadium</td>
+            <td>Soccer</td>
+            <td>Yes</td>
+            <td>Nashville FC</td>
+            <td>2022</td>
+            <td>27,500</td>
+        </tr>
+
+        <tr>
+            <td>Cincinnati</td>
+            <td>OH</td>
+            <td>West End Stadium</td>
+            <td>Soccer</td>
+            <td>Yes</td>
+            <td>Cincincati FC</td>
+            <td>2021</td>
+            <td>26,000</td>
+        </tr>
+        <tr>
+            <td>Miami</td>
+            <td>FL</td>
+            <td>Miami Freedom Park</td>
+            <td>Soccer</td>
+            <td>Yes</td>
+            <td>Inter Miami <br> CF</td>
+            <td>2022</td>
+            <td>25,000</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Our various keyword lists related abbreviated versions of the team’s names
+        <dt-fn>
+            The keyword ‘larams’ could be found in the text of tweets mentioning ‘@larams’ , ‘#larams, ‘larams.’, etc.
+        </dt-fn>,
+
+        official handles for the organization(s) tied to the stadium, team and stadium names, appropriate slogans, and common hashtags found on twitter when searching for these stadiums on the app. The keywords and text were modified to guarantee matches when applicable
+        <dt-fn>
+            Keywords (Python strings) were uppercased and checked whether they were contained in the tweet’s uppercased text (also strings). While parsing the original dataset, this eliminated the need to align casing between keywords and potential matches within the tweet’s text. The documentation for Python’s string library provides methods to handle casing. With this method, there was a possibility of multiple keywords appearing in a single tweet, creating duplicates.
+        </dt-fn>.
+
+        Duplicate data was then handled
+        <dt-fn>
+
+                Duplicate data was found and deleted by searching the entire dataset of filtered tweets for instances of tweets where the text was the same. If a tweet’s text was found to be the same, all instances after the first one were deleted.
+        </dt-fn>.
+ 
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        While each individual tweet in the original dataset contained over twenty attributes, the dataset this project uses focuses on text
+        <dt-fn>
+            Commonly found in actual tweets are emojis, pictures, and/or gifs and these content formats were not taken into consideration during the sentiment analysis.
+
+
+        </dt-fn>, location, and time of creation, and language. After filtering the entire dataset<dt-fn>approximately two billion tweets </dt-fn> and cleaning of repeat and non English data, we found 274, 607 tweets that matched our keywords. Notably, the dataset is further broken down and analysed in a later section of this project.</p>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After gathering the data, sentiment analysis<dt-cite key="loria2018textblob"></dt-cite> was performed using the Python library <em>“TextBlob”</em>. The sentiment analysis reads the text of each tweet and returns the ‘sentiment’, defined as “a named tuple of the form sentiment(polarity, subjectivity).”
+
+        <dt-fn>
+            The <a href="https://textblob.readthedocs.io/en/dev/quickstart.html">
+                Textblob</a>
+            library provides access to simple natural language processing tasks
+            such as sentiment analysis.
+        </dt-fn>
+    </p>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Polarity ranges from [-1.00, 1.00], where (-1) means the text speaks very negatively and (+1) means the text speaks very positively. Subjectivity ranges from [0.00, 1.00], where (0) means the text displays no subjectivity and (+1) means the text is entirely subjective. Proceeding onto the findings from our data, we will first look at the composition of the dataset by stadium.
+    </p>
+
+
+   
+   
+     <h2 id="gfindings">General Findings</h2>
+     
+      <p>
+        <font size=3><b>Figure 2.</b> <em>Percent of Tweets by Stadium
+            </em></font>
+    </p>
+    
+    
+    <img class=l-body src=img/Picture1.png>
+    
+    <p>
+    <em>Figure 2</em> visually breaks down the composition of our data. This figure is a result of organizing the data by which stadium’s keyword picked up a specific tweet.
+
+    </p>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        The largest three portions of our dataset came from upcoming Globe Stadium in Arlington, Texas (~53%), Allegiant Stadium in Las Vegas, Nevada (~17%) and Sofi Stadium in Inglewood, California (~13%). Given that these stadiums are three of the four largest and nearest to completion, it is understandable that these stadiums were the most tweeted about.
+
+
+    </p>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Throughout the remainder of the project, all figures referring to <font color="blue">Polarity</font> specifically will be <font color="blue">blue</font> and figures referring to <font color="red">Subjectivity</font> specifically will be <font color="red">red</font> using ten bins with a range of (0.20) for Polarity and ten bins with a range of (0.10) for Subjectivity.
+
+    </p>
+
+
+
+    <p>
+        <font size=3><b>Figure 3A.</b> <em>Count of Polarity in each Range
+            </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture2.png> <p>
+    <font size=3><b>Figure 3B.</b> <em>Count of Subjectivity in each Range
+        </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture3.png> <br>
+
+    <br>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        On both graphs, the frequency of tweets spikes around the middle of their respective ranges. The polarity appears to be slightly positive, with the majority of tweets having a polarity equal to or greater than zero. Overall, the graph of Subjectivity’s average is around 0.5, but there is a spike around (+1.00).
+
+
+    </p>
+
+    <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        The original dataset spans a time period of roughly twenty five months. Figure 4 portrays average sentiment over time, by splitting this time period into groups of three (knowing the data from the last bin is incomplete).
+
+
+    </p>
+
+
+    <p>
+        <font size=3><b>Figure 4A.</b> <em>Average Polarity for each Time Period
+            </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture4.png> <p>
+    <font size=3><b>Figure 4B.</b> <em>Average Subjectivity for each Time Period
+        </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture5.png> <br>
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        These figures represent the change in polarity and subjectivity over time. While the graphs look fairly hectic, the scale of the Y-axis is very important, as it tells us that there is actually fairly small deviations in both polarity and sentiment. Our polarity data shows that average sentiment of the data was consistently higher than (0.00), at about (0.10), which agrees with the results of Figure 3A. Our subjectivity data shares a similar trend, with the average being slightly higher than (0.30) for most periods. This again matches the expectations from Figure 3B. 
+
+    </p>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Because this project focuses on American stadiums, we used the location of tweets that contained this field to map the tweets by stadium on North America. Below are these maps.
+        
+        <dt-fn>
+            We used <a href="http://geopandas.org/reference.html">GeoPandas</a>, an open source project, to make working with geolocation data in Python easier. The coordinate data was plotted onto North America (using this <a href="https://www.sciencebase.gov/catalog/item/4fb555ebe4b04cb937751db9">shape-file</a>).
+
+
+        </dt-fn>
+        
+        
+        <dt-fn>
+            About 1% of users enable geolocation, so the below maps only show the location of tweets with location enabled in North America. Because this 1% is consistent among all users, it is a decent proxy for the distribution of our entire dataset.
+
+
+        </dt-fn>
+    </p>
+
+
+    <p>
+        <font size=3><b>Figure 5A.</b> <em>Map of Globe Life Data in North America
+            </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture6.png> <br>
+    <p>
+        <font size=3><b>Figure 5B.</b> <em>Map of all the Other Data in North America
+            </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture7.png> <br>
+
+
+    <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        It is evident in both graphs that the majority of the tweets centered in North America are sent from within the United States, with many hotspots in the Eastern half and West coast. Each of the stadiums also appear to have clusters close to their home city, but in every case, tweets relating to every stadium are found across the nation.
+
+
+    </p>
+
+    <p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        This interesting note most likely comes from our first source of error: our keywords. Because these determined our specific dataset, having keywords pick up tweets that do not talk about the topic at hand is a very big issue. which ultimately determined the tweets to be included in the dataset. Some of our keywords did not refer to the stadiums specifically, but to the teams that played in their respective stadiums. As a result some of our data did not apply to the topic, but was very hard to filter out well. This increased our <em>Bayes error<dt-fn>The best (lowest) possible error rate </dt-fn></em>drastically.
+
+
+    </p>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        As mentioned earlier, there is about as much data for Globe Life Field as the rest of the nine stadiums combined. Because Globe Life represented so much of the total dataset, we decided to focus the rest of our efforts on Globe Life’s data specifically. Selecting one stadium also simplified the training of our models<dt-fn>Linear models trained to predict the sentiment of a particular stadium given months away from completion</dt-fn>, which is discussed later on. We assumed that because of the above factors, it would be a decent proxy for many of the other stadiums.
+
+
+    </p>
+
+
+    <h2 id="globeLife">Globe Life Field’s Data Findings</h2>
+
+
+    <p>
+        <font size=3><b>Figure 6A.</b> <em>Globe Life Field’s Average Polarity over Time
+            </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture8.png> <br>
+    <p>
+        <font size=3><b>Figure 6B.</b> <em>Globe Life Field’s Average Subjectivity over Time
+            </em></font>
+    </p>
+
+    <img class=l-body src=img/Picture9.png> <br><br>
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        Over the same nine time ranges, Globe Life’s polarity appears to be very similar to that of the entire dataset, reinforcing our choice for the single stadium to represent our entire dataset. Over this entire time period, the average of the Globe Life data deviated a maximum of just over (0.03) from the overall dataset,  suggesting that it was a very good approximation for the data as a whole. Our subjectivities deviation is even smaller. The trend of the Globe life data and of the entire dataset appear to move in sync over all twenty six months. 
+
+
+    </p>
+
+
+    <h2>Conclusions</h2>
+
+
+
+
+    <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        As we have discovered, predicting the sentiment towards the construction of stadiums is a challenging problem. However, we found that the average sentiment towards a stadium as construction nears completion does not change drastically. While months until completion alone was an extremely poor predictor of either sentiment or polarity, using the other term (sentiment for polarity and polarity for sentiment) gave a better answer. However, because polarity and sentiment are not known without the other, the best approximation of polarity or sentiment at a given time would be a range that is dependent on a range of either sentiments or polarities.
+    </p>
+    <p>
+        After optimizations of OLS<dt-fn>ordinary least squares</dt-fn>, ridge and lasso linear models on this dataset, OLS was found to be the best of the three linear models. However, we still consistently had very mean squared error, meaning that the model was a poor predictor of the sentiment at any given point in the data. </p>
+    <p>
+        This poor fit comes from our extremely large Bayes error that comes from the high variation of the data within the dataset. As a result, there is a very high amount of irreducible error within this dataset. However, if we were to attempt this or a similar project again, this could be minimized by choosing keywords that acted as a better<dt-fn>Aside from the fact that this tweet is recent (beyond the scope of the original twitter data set, no keyword from any list would have picked up an opinionated tweet such as this <a href="https://twitter.com/AtlanticPoliSci/status/1204530125813026822"> one</a>. The sentiment analysis results from <em>TextBlob</em> for this particular tweet are: <br><font color="blue">Polarity</font> = 0.487273 are <font color="red">Subjectvitity</font> = 0.570909</dt-fn> filter on the general dataset and therefore would give us a dataset with improved relation to our variables of interest. On the other hand, our estimation error was extremely low, as our dataset was so large that our model was a good approximation for the true value of the entire population.
+
+
+
+    </p>
+
+    <h2>Technical Appendix</h2>
+
+    <p>
+        Throughout the project, the data was saved in CSV files that were accessible using Python script or Microsoft Excel. All of the summary figures for the data in the “General Findings” and “Globe Life Field’s Data Findings” sections were made using Excel. After this section, every other figure was generated using Python script on the same CSV files. For all models, the data was broken up into a training set and a test set, where the training set consisted of 13,800 data points and the test set consisted of the other 9,850 data points. 
+
+    </p>
+
+    <p>
+
+        For our basic one-dimensional linear regression, we performed this regression in two steps. In the first, we used Pythons <a href="https://pandas.pydata.org/">Pandas
+        </a> library followed by SkLearn’s linear regression to build the model. Because it was a very simple model, there was no optimization done. Next, we used the <a href="https://seaborn.pydata.org/">Seaborn</a> library to construct a visual of this model and regression visuals.
+    </p>
+
+
+    <p>
+        For the OLS, ridge and lasso models with multiple independent variables, we used SkLearn’s linear model. First, to visualize the three-dimensional data, we used Python’s MatPlotLib’s feature
+        of “<a href="https://matplotlib.org/mpl_toolkits/mplot3d/index.html">mplot3d</a>." Since MatPlotLib is only intended for use with two dimensional graphs, the functions relating to three dimensional graphs are very limited. As a result, these
+        graphs were not nearly as well designed as we would have liked, but we did not have the functionality to improve them. OLS could not be optimized, so we did not modify this command at all. Because ridge regression takes an ‘alpha’ term as a parameter,
+        we optimized this alpha term to minimize the mean squared error of the model on the test data. After optimizing alpha, a ridge model was trained on the data. Finally, we performed this same method for the lasso models that performed poorly.
+        
+    </p>
+    
+    
+    <p>
+        After performing all of these regressions, SkLearn’s ‘metrics’ library was used to find the R-squared values and the Root Mean Squared Error terms for every model. These were then saved, transferred to an Excel document and compared against each other. 
+
+    </p>
+    
+    <br>
+
+    
+
+</dt-article>
+
+<dt-appendix>
+</dt-appendix>
+
+<script type="text/bibliography">
+    @article{source1,
+  title={The Economic Impact of New Stadiums and Arenas on Cities},
+  author={Garrett Johnson},
+  journal={University of Denver Sports & Entertainment Law Journal, 10},
+  year={2011},
+}
+
+@techreport{loria2018textblob,
+  title={textblob Documentation},
+  author={Loria, Steven},
+  year={2018}
+}
+</script>
