@@ -5,6 +5,8 @@ import datetime
 import rapidjson as json # pip3 install python-rapidjson
 import sys
 
+import os
+
 
 def traverse(filename): 
     #gathered tweets
@@ -221,3 +223,21 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
+    #additional script to run code above on all 752 twitter-day files in paralle, a remote computer with 256gb RAM was used
+    
+#def main():
+#    x=0
+ #   datadir = '/data/Twitter dataset/'
+  #  for filename in os.listdir(datadir):
+   #     x+=1
+    #    try:
+     #       if filename.endswith(".zip"):
+      #          os.system("python3 script.py " + filename + " &")
+       #         print('processing file #'+str(x))
+        #except:
+          #  print('skipping file..')
+         #   continue
+
+#if __name__== "__main__":
+ # main()
