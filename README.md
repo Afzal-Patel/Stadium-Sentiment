@@ -9,7 +9,7 @@ Through an analysis of tweets related to stadiums, we have found that the sentim
 
 Collaborators: @anovitsky20
 
-Included in this repo are:<br/>
+Included in this repo are:<br/><br/>
 the python script used to parse the original twitter dataset/gather data, <br/>the
 html for this project, and a pdf preview of the post soon to be found in Data Insights (see below).
 
