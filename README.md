@@ -1,6 +1,6 @@
 # Stadium-Sentiment
 
-<b>Final Project 
+<b>
 
 CMC CSCI 145 / Math 186: Data Mining</b><br/>
 
