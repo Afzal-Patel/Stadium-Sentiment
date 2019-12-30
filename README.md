@@ -2,7 +2,7 @@
 
 <b>Final Project 
 
-CMC CSCI145/Math186: Data Mining</b><br/>
+CMC CSCI 145 / Math 186: Data Mining</b><br/>
 
 
 Through an analysis of tweets related to stadiums, we have found that the sentiment of twitter users towards new stadiums does not change as they near completion. 
