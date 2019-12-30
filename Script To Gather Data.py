@@ -1,3 +1,4 @@
+    #a remote computer with 256gb RAM was used
 import os
 import csv
 import zipfile
@@ -224,7 +225,8 @@ def main():
 if __name__ == "__main__":
     main()
     
-    #additional script to run code above on all 752 twitter-day files in paralle, a remote computer with 256gb RAM was used
+    #additional script to run code above on all 752 twitter-day files in parallel
+
     
 #def main():
 #    x=0
