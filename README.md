@@ -8,6 +8,7 @@ CMC CSCI145/Math186: Data Mining<br/>
 Through an analysis of tweets related to stadiums, we have found that the sentiment of twitter users towards new stadiums does not change as they near completion. 
 
 Collaborators: @anovitsky20
+<br/>
 
 Included in this repo are:<br/><br/>
 the python script used to parse the original twitter dataset/gather data, <br/>the
