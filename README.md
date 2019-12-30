@@ -10,15 +10,15 @@ Through an analysis of tweets related to stadiums, we have found that the sentim
 Collaborators: @anovitsky20
 <br/>
 
-Included in this repo are:<br/><br/>
-the python script used to parse the original twitter dataset/gather data, <br/>the
-html for this project, and a pdf preview of the post soon to be found in <em>Data Insights</em> (see below).
+<b>Included</b> in this repo are:<br/><br/>
+the <b>python script</b> used to parse the original twitter dataset/gather data, <br/>the
+<b>html</b> for this project, and a <b>pdf</b> preview of the post soon to be found in <em>Data Insights</em> (see below).
 
 <b>About:</b><br/>
 
 Data Insights is an academic journal for undergraduate data science research. Each article presents a single insight that was somehow gleaned from data. The editorial focus is on a clear exposition that explains why the insight is important. There are no restrictions on the type of data sources used or the methods of analyzing the data, but the best insights typically come from simple analyses.<br/>
 
-Data Insights was largely inspired by the machine learning journal Distill, but there is no official relationship between the two.
+<em>Data Insights</em> was largely inspired by the machine learning journal Distill, but there is no official relationship between the two.
 
 <b>Submissions:</b><br/>
 
