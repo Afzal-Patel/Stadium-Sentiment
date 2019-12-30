@@ -9,17 +9,17 @@ Through an analysis of tweets related to stadiums, we have found that the sentim
 
 Collaborators: @anovitsky20
 
-Included in this repo are:
-the python script used to parse the original twitter dataset and to gather the data,
-html for this project, and a pdf preview of the post found in Data Insights (see below).
+Included in this repo are:\n
+the python script used to parse the original twitter dataset/gather data, the
+html for this project, and a pdf preview of the post soon to be found in Data Insights (see below).
 
-About:
+About:\n
 
 Data Insights is an academic journal for undergraduate data science research. Each article presents a single insight that was somehow gleaned from data. The editorial focus is on a clear exposition that explains why the insight is important. There are no restrictions on the type of data sources used or the methods of analyzing the data, but the best insights typically come from simple analyses.
 
 Data Insights was largely inspired by the machine learning journal Distill, but there is no official relationship between the two.
 
-Submissions:
+Submissions:\n
 
 Submissions are welcome from any undergraduate student, anywhere in the world.1 To submit an article, issue a pull request into the github repository (found here: https://github.com/mikeizbicki/applieddatascience.pub). This will initiate a back-and-forth process with the editors to polish your submission for publication. When the pull request is finally accepted, your article will be instantly published online.
 
