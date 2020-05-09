@@ -12,6 +12,5 @@ Collaborators: @anovitsky20
 
 <b>Included</b> in this repo are:<br/><br/>
 the <b>python script</b> used to parse the original twitter dataset/gather data, <br/>the
-<b>html</b> for this project, and a <b>pdf</b> preview of the post soon to be found in <em>Data Insights</em> (see below).
-
+<b>html</b> for this project, and a <b>pdf</b> preview of the project
 
