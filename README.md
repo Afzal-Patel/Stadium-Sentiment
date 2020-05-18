@@ -16,5 +16,5 @@ the <b>python script</b> used to parse the original twitter dataset/gather data,
 
 The twitter dataset gathered and analyzed can be found here:
 
-https://drive.google.com/file/d/1wVVGcKpKNJMYUIsxzbrNO2bwJZZ4ZEYi/view?usp=sharing
+https://drive.google.com/drive/folders/1CHJOMTLd8rSVZ0bh0IKgGQlt2lyws4VW?usp=sharing
 
