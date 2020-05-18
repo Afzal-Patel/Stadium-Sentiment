@@ -14,3 +14,7 @@ Collaborators: @anovitsky20
 the <b>python script</b> used to parse the original twitter dataset/gather data, <br/>the
 <b>html</b> for this project, and a <b>pdf</b> preview of the project
 
+The twitter dataset gathered and analyzed can be found here:
+
+https://drive.google.com/file/d/1wVVGcKpKNJMYUIsxzbrNO2bwJZZ4ZEYi/view?usp=sharing
+
